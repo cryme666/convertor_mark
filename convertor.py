@@ -56,11 +56,29 @@ def csv_to_excel(csv_file_path):
     new_path = get_new_path(excel_file_name)
     df.to_excel(new_path,index = False)
 
-#!доробити
-def txt_to_pdf(file_path):
-    pass
+def txt_to_pdf(txt_file_path):
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font('Arial', size=12)
+
+    pdf_file_name = txt_file_path.rsplit(FOLDER)[1].rsplit('.')[0]+'.pdf'
+
+
+    try:
+        with open(txt_file_path, 'r', encoding='UTF-8') as file:
+            for line in file:
+                pdf.cell(200, 10, txt=line.strip(), ln=True)  
+    except FileNotFoundError:
+        print(f"Помилка: файл '{txt_file_path}' не знайдено.")
+        return
+
+    pdf_file_path = get_new_path(pdf_file_name)
+
+    pdf.output(pdf_file_path, 'F')
+
+    return pdf_file_path
 
 
 if __name__ == '__main__':
-    csv_to_excel(FOLDER+'students.csv')
+    txt_to_pdf(FOLDER+'file.txt')
 

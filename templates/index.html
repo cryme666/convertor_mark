@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <h1>Завантажте файл і виберіть тип конвератції</h1>
     
-    <form action="submit" method="post">
+    <form action="submit" method="post"  enctype="multipart/form-data">
 
         <div>
             <label for="file">Виберіть файл для завантаження</label>
@@ -23,6 +24,9 @@
                 <option value="csv_to_excel">CSV to EXCEL</option>
                 <option value="txt_to_PDF">TXT to PDF</option>
             </select>
+        </div>
+        <div>
+            <button type="submit">Завантажити та ковенртувати</button>
         </div>
     </form>
     
