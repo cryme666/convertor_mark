@@ -56,6 +56,8 @@ def csv_to_excel(csv_file_path):
     new_path = get_new_path(excel_file_name)
     df.to_excel(new_path,index = False)
 
+    return new_path
+
 def txt_to_pdf(txt_file_path):
     pdf = FPDF()
     pdf.add_page()
